@@ -1,0 +1,1 @@
+<opis><nazwa>.bash_history</nazwa><rozmiar>481</rozmiar><sygnatura>41197</sygnatura></opis>

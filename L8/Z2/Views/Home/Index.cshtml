@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p id="api-response">Response from <a href="/api/Api">API endpoint</a>: </p>
+</div>
+
+<script>
+    window.addEventListener('load', async function () {
+        const textbox = document.getElementById('api-response');
+        try {
+            const response = await fetch('/api/Api');
+
+            if (!response.ok || response.redirected) {
+                throw new Error(`HTTP error! status: ${response.status}, redirected: ${response.redirected}`);
+            }
+
+            textbox.innerHTML += `${await response.text()}`
+        } catch (error) {
+            textbox.innerHTML += `Error fetching response (${error.message})`;
+        }
+    })
+</script>
